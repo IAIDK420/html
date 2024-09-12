@@ -20,14 +20,26 @@
     <a href="datos.html">DATOS</a>
 
     <br><br> FORMULARIOS
-<Form action method="post" enctype="text/plain"></Form>
-    <Form action="datos.html" method="post">
-    <!-- your form fields here -->
+<Form action="datos.html" method="post" onsubmit="handleFormSubmission(event)">
+    <!-- tus campos de formulario aquí -->
     <tr>
         <td>Enviar:</td>
         <td><input type="submit" value="Enviar"></td>
     </tr>
 </Form>
+
+<script>
+  function handleFormSubmission(event) {
+    event.preventDefault();
+    const formData = new FormData(document.forms[0]);
+    const datosDiv = document.getElementById("datos");
+    datosDiv.innerHTML = "";
+    for (const [key, value] of formData) {
+      datosDiv.innerHTML += `${key}: ${value}<br>`;
+    }
+    window.location.href = "datos.html";
+  }
+</script>
         <table border="1">
             <tr style="background-color:rgb(194, 206, 244);">
                 
