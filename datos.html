@@ -17,10 +17,21 @@
     <a href="enlaces.html">ENLACES</a>
     <a href="datos.html">DATOS</a>
 
-    <Form action="datos.html" method="post">
-    <!-- your form fields here -->
-    <tr>
-        <td>Enviar:</td>
-        <td><input type="submit" value="Enviar"></td>
-    </tr>
-</Form>
+<html>
+  <head>
+    <title>Datos</title>
+  </head>
+  <body>
+    <h1>Datos</h1>
+    <div id="datos"></div>
+
+    <script>
+      const datosDiv = document.getElementById("datos");
+      const formData = new FormData(document.forms[0]);
+
+      for (const [key, value] of formData) {
+        datosDiv.innerHTML += `${key}: ${value}<br>`;
+      }
+    </script>
+  </body>
+</html>
